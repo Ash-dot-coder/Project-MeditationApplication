@@ -1,0 +1,173 @@
+@font-face {
+    font-family: Font1B;
+    src: url(../Assets/MomcakeBold-WyonA.otf);
+}
+
+@font-face {
+    font-family: Font1T;
+    src: url(../Assets/MomcakeThin-9Y6aZ.otf);
+}
+
+@font-face {
+    font-family: HeadingFont;
+    src: url(../Assets/MilanelloFree-51Lwv.otf);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+#loading {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading svg {
+    overflow: visible;
+}
+
+#loading svg path {
+    fill: transparent;
+    stroke-width: .5px;
+    stroke-dasharray: 270;
+    stroke-dashoffset: 270;
+    stroke: white;
+    animation: loading 17s linear forwards;
+}
+
+#page1 {
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+}
+
+#page1 nav {
+    padding: 1vw 2vw;
+}
+
+#page1 h1 {
+    user-select: none;
+    font-family: HeadingFont;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.views-container {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-video {
+    height: 400px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 3;
+}
+
+.card-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
+
+.card-video:hover img {
+    cursor: pointer;
+    filter: grayscale(0);
+    scale: 1.05;
+}
+
+.card-video h1 {
+    font-family: Font1T;
+    font-size: 1vw;
+    position: absolute;
+    color: white;
+    right: 3%;
+    bottom: 0;
+    transition: all 0.5s ease;
+    -webkit-text-stroke: 0.3px black;
+}
+
+.card-video:hover h1 {
+    color: var(--clr);
+    -webkit-text-stroke: 0.1 black;
+}
+
+#video-player {
+    height: 100vh;
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    z-index: 3;
+}
+
+#video-player video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#video-player .crosssvg {
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+}
+
+#video-player .crosssvg svg path {
+    stroke: white;
+    fill: black;
+}
+
+#video-player .crosssvg:active svg path {
+    stroke: red;
+    fill: red;
+}
+
+@keyframes loading {
+    0% {
+        fill: transparent;
+        stroke-dashoffset: 270;
+    }
+
+    95% {
+        fill: transparent;
+    }
+
+    100% {
+        fill: white;
+        stroke-dashoffset: 0;
+        filter: drop-shadow(0 0 5px white);
+    }
+}
